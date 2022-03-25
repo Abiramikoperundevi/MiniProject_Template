@@ -1,52 +1,68 @@
 /**
- * @file calculator_operations.h
- * @author Bharath.G ()
- * @brief Calculator application with 4 mathematical operations
+ * @file covid_tracking_system.h
+ * @author Abirami G ()
+ * @brief Covid and vaccinated status as like a tracking system
  * @version 0.1
- * @date 2021-12-30
+ * @date 2022-03-21
  * 
- * @copyright Copyright (c) 2021
+ * @copyright Copyright (c) 2022
  * 
  */
-#ifndef __CALCULATOR_OPERATIONS_H__
-#define __CALCULATOR_OPERATIONS_H__
+#ifndef __COVID_TRACKING_SYSTEM_H__
+#define __COVID_TRACKING_SYSTEM_H__
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdio_ext.h>
+#include<stdio.h>
+#include<stdlib.h>
 
-/**
-*  adds the operand1 and operand2 and returns the result
-* @param[in] operand1 
-* @param[in] operand2 
-* @return Result of operand1 + operand2
-*/
-int add(int operand1, int operand2);
+struct covid_detail
+{
+	char State_name[100];
+	long int total_case;
+    	long int active_case;
+    	long int recovered_case;
+    	long int death_case;
+};
 
-/**
-*  subtracts the operand1, operand2 and returns the result
-* @param[in] operand1 
-* @param[in] operand2 
-* @return Result of operand1 - operand2
-*/
-int subtract(int operand1, int operand2);
-
-/**
-*  multiply the operand1, operand2 and returns the result
-* @param[in] operand1 
-* @param[in] operand2 
-* @return Result of operand1 * operand2
-*/
-int multiply(int operand1, int operand2);
-
+struct vaccinated_detail
+{
+    	char State_name[100];
+    	long long int first_dose;
+    	long long int second_dose;
+};
 
 /**
-* divides the operand1 by operand2 and returns the result 
-* @param[in] operand1 
-* @param[in] operand2 
-* @return integer value of the operand1 / operand2
-* @note returns 0 for divide by 0 error
+* Displays the covid details with the information of Total case, Active case, Recovered case, Death case
+* @param[in] total_case 
+* @param[in] active_case
+* @param[in] recovered_case
+* @param[in] death_case
+* @return Result of the count of Total case, Active case, Recovered case, Death case
 */
-int divide(int operand1, int operand2);
 
-#endif  /* #define __CALCULATOR_OPERATIONS_H__ */
+void covid_details(struct covid_detail s[], int temp_state, long int temp_total_case,long int temp_active_case,long int temp_recovered_case,long int temp_death_case);
+
+/**
+* Displays the vaccinated details with the information of first dosage and second dosage
+* @param[in] first_dose 
+* @param[in] second_dose 
+* @return Result of the count of first dose and second dose
+*/
+
+void vaccinated_details(struct vaccinated_detail v[], int temp_state, long int temp_first_dose, long int temp_second_dose);
+
+/**
+* Displays the status of the covid cases with the information of Total case, Active case, Recovered case, Death case
+* @param[in] temp_state 
+* @return Result of the count status of Total case, Active case, Recovered case, Death case
+*/
+
+void covid_status(struct covid_detail s[],int temp_state);
+/**
+* Displays the status of the vaccinated cases with the information of first dosage and second dosage
+* @param[in] temp_state
+* @return Result of the count status of first dose and second dose
+*/
+
+void vaccinated_status(struct vaccinated_detail v[], int temp_state);
+
+#endif  /* #define __COVID_TRACKING_SYSTEM_H__*/
